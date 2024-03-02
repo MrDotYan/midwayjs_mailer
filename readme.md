@@ -3,7 +3,7 @@
 在 src 目录下新建 components 文件夹, `git clone` 本仓库到该文件夹下，然后在全局目录，执行
 
 ```bash
-npm i nodemailer--save && npm i @types/nodemailer --save-dev
+npm i nodemailer --save && npm i @types/nodemailer --save-dev
 ```
 
 ### 启用组件
@@ -24,14 +24,27 @@ export class MainConfiguration {}
 
 ### 调用服务
 
+一般情况配合`@midwayjs/captcha`组件使用
+
+
+```bash
+$ npm i @midwayjs/captcha@3 --save
+```
+
+记得引入验证码组件，下面是使用案例👇👇👇👇👇
+
 ```ts
 import { Body, Controller, Inject, Post } from '@midwayjs/core';
+import { CaptchaService } from '@midwayjs/captcha';
 import { MailerService } from '../../components/mailer';
 
 @Controller('/email')
 export class EmailController {
   @Inject()
   mailerService: MailerService;
+
+  @Inject()
+  captchaService: CaptchaService;
 
   @Post('/send')
   @Validate()
