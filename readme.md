@@ -24,14 +24,27 @@ export class MainConfiguration {}
 
 ### 调用服务
 
+一般情况配合`@midwayjs/captcha`组件使用
+
+
+```bash
+$ npm i @midwayjs/captcha@3 --save
+```
+
+记得引入验证码组件
+
 ```ts
 import { Body, Controller, Inject, Post } from '@midwayjs/core';
+import { CaptchaService } from '@midwayjs/captcha';
 import { MailerService } from '../../components/mailer';
 
 @Controller('/email')
 export class EmailController {
   @Inject()
   mailerService: MailerService;
+
+  @Inject()
+  captchaService: CaptchaService;
 
   @Post('/send')
   @Validate()
