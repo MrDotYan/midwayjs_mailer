@@ -2,6 +2,7 @@ import { Config, Inject, Provide } from '@midwayjs/core';
 import { Transporter } from 'nodemailer';
 import { MailerConfigurationType, MessageType } from '../..';
 import { BadRequestError } from '@midwayjs/core/dist/error/http';
+import { isNotEmpty } from '../utils';
 
 @Provide()
 export class MailerService {
@@ -28,29 +29,4 @@ export class MailerService {
       throw new BadRequestError(error);
     }
   }
-}
-
-/**
- * @description 判断不空
- * @param val
- * @returns boolean
- */
-function isNotEmpty(val: unknown) {
-  const types = typeof val;
-  if (types === 'string' && val !== '') return true;
-  if (
-    types === 'object' &&
-    val !== null &&
-    JSON.stringify(val) !== '{}' &&
-    JSON.stringify(val) !== '[]'
-  )
-    return true;
-  if (types === 'number') {
-    if (Number.isNaN(val)) return false;
-    return true;
-  }
-  if (types === 'undefined') return false;
-  if (types === 'boolean') return true;
-  if (types === 'function') return true;
-  return false;
 }

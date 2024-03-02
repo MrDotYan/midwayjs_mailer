@@ -1,4 +1,4 @@
-import { Config, Configuration, IMidwayContainer } from '@midwayjs/core';
+import { Config, Configuration, IMidwayContainer, MidwayError } from '@midwayjs/core';
 import * as DefaultConfig from './config/config.default';
 import {
   Transport,
@@ -6,6 +6,7 @@ import {
   Transporter,
   createTransport,
 } from 'nodemailer';
+import { isNotEmpty } from './utils';
 
 @Configuration({
   namespace: 'mailer',
@@ -20,7 +21,11 @@ export class MailerConfiguration {
   private readonly mailer: Transport<any> | TransportOptions;
 
   async onReady(container: IMidwayContainer) {
-    container.registerObject('mailer', createTransport(this.mailer));
+    if(isNotEmpty(this.mailer)) {
+      container.registerObject('mailer', createTransport(this.mailer));
+    }else{
+      throw new MidwayError('You need to configure email information')
+    }
   }
 
   async onStop(container: IMidwayContainer) {
