@@ -3,7 +3,7 @@
 在 src 目录下新建 components 文件夹, `git clone` 本仓库到该文件夹下，然后在全局目录，执行
 
 ```bash
-npm i nodemailer--save && npm i @types/nodemailer --save-dev
+npm i nodemailer --save && npm i @types/nodemailer --save-dev
 ```
 
 ### 启用组件
