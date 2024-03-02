@@ -31,7 +31,7 @@ export class MainConfiguration {}
 $ npm i @midwayjs/captcha@3 --save
 ```
 
-记得引入验证码组件
+记得引入验证码组件，下面是使用案例👇👇👇👇👇
 
 ```ts
 import { Body, Controller, Inject, Post } from '@midwayjs/core';
