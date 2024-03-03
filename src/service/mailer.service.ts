@@ -1,7 +1,6 @@
-import { Config, Inject, Provide } from '@midwayjs/core';
+import { Config, Inject, MidwayError, Provide } from '@midwayjs/core';
 import { Transporter } from 'nodemailer';
 import { MailerConfigurationType, MessageType } from '../..';
-import { BadRequestError } from '@midwayjs/core/dist/error/http';
 import { isNotEmpty } from '../utils';
 
 @Provide()
@@ -26,7 +25,7 @@ export class MailerService {
         return { success: false, message: 'fail', data: null };
       }
     } catch (error) {
-      throw new BadRequestError(error);
+      throw new MidwayError(error);
     }
   }
 }
