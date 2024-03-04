@@ -6,6 +6,14 @@
 npm i nodemailer --save && npm i @types/nodemailer --save-dev
 ```
 
+或者 在`package.json`中添加
+
+```json
+"dependencies" {
+  "mailer": "https://gitee.com/onlymry_admin/midwayjs_mailer.git"
+}
+```
+
 ### 启用组件
 
 在 src/configuration.ts 中引入组件。

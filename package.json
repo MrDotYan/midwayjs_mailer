@@ -18,6 +18,10 @@
     "dist/**/*.d.ts",
     "index.d.ts"
   ],
+  "dependencies" :{
+
+    "nodemailer": "^6.9.8",
+  },
   "license": "MIT",
   "devDependencies": {
     "@midwayjs/cli": "^2.0.0",
