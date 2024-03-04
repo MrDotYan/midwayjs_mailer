@@ -19,7 +19,6 @@
     "index.d.ts"
   ],
   "dependencies" :{
-
     "nodemailer": "^6.9.8"
   },
   "license": "MIT",
