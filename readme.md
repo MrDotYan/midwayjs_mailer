@@ -5,6 +5,17 @@
 ```bash
 npm i nodemailer --save && npm i @types/nodemailer --save-dev
 ```
+如果在仓库里面有dist包，你可以这样操作 在你的`package.json`里面添加下面👇的依赖
+```json
+"dependencies":{
+    "midwayjs_mailer": "https://gitee.com/onlymry_admin/midwayjs_mailer.git"
+}
+```
+然后执行
+```bash
+yarn install
+```
+如果咩有，那就老老实实按照第一步来吧！
 
 ### 启用组件
 
