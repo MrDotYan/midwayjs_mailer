@@ -2,7 +2,7 @@
   "name": "mailer",
   "version": "1.0.0",
   "description": "This is a midway component sample",
-  "main": "src/index",
+  "main": "dist/index.js",
   "typings": "index.d.ts",
   "scripts": {
     "build": "cross-env midway-bin build -c",
