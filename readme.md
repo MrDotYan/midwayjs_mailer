@@ -96,4 +96,17 @@ export default {
     },
   },
 } as MidwayConfig;
+
+// 网易邮箱
+export default {
+  mailer :{
+    host: 'smtp.sina.com', //163、qq等
+    secureConnection: true,
+    prefix: '', //邮件前缀
+    auth: {
+      user: '', //邮箱
+      pass: '', //邮箱密码或授权码
+    },
+  }
+}
 ```
