@@ -21,14 +21,14 @@ let MailerService = class MailerService {
                 subject: `${this.config.prefix}-${message.subject}`,
             });
             if ((0, utils_1.isNotEmpty)(r.messageId)) {
-                return { success: true, message: 'success', data: r.messageId };
+                return { success: true, message: "success", data: r.messageId };
             }
             else {
-                return { success: false, message: 'fail', data: null };
+                return { success: false, message: "fail", data: null };
             }
         }
         catch (error) {
-            throw new core_1.MidwayError(error);
+            return { success: false, message: "error", data: JSON.stringify(error) };
         }
     }
 };
@@ -37,7 +37,7 @@ __decorate([
     __metadata("design:type", Object)
 ], MailerService.prototype, "mailer", void 0);
 __decorate([
-    (0, core_1.Config)('mailer'),
+    (0, core_1.Config)("mailer"),
     __metadata("design:type", Object)
 ], MailerService.prototype, "config", void 0);
 MailerService = __decorate([
