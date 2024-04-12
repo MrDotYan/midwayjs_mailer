@@ -1,4 +1,4 @@
-import { MailerConfigurationType, MessageType } from '../..';
+import { MailerConfigurationType, MessageType } from "../..";
 export declare class MailerService {
     private mailer;
     config: MailerConfigurationType;
