@@ -1,14 +1,14 @@
-import { Config, Inject, MidwayError, Provide } from '@midwayjs/core';
-import { Transporter } from 'nodemailer';
-import { MailerConfigurationType, MessageType } from '../..';
-import { isNotEmpty } from '../utils';
+import { Config, Inject, Provide } from "@midwayjs/core";
+import { Transporter } from "nodemailer";
+import { MailerConfigurationType, MessageType } from "../..";
+import { isNotEmpty } from "../utils";
 
 @Provide()
 export class MailerService {
   @Inject()
   private mailer: Transporter;
 
-  @Config('mailer')
+  @Config("mailer")
   config: MailerConfigurationType;
 
   async send(message: MessageType) {
@@ -20,12 +20,12 @@ export class MailerService {
       });
 
       if (isNotEmpty(r.messageId)) {
-        return { success: true, message: 'success', data: r.messageId };
+        return { success: true, message: "success", data: r.messageId };
       } else {
-        return { success: false, message: 'fail', data: null };
+        return { success: false, message: "fail", data: null };
       }
     } catch (error) {
-      throw new MidwayError(error);
+      return { success: false, message: "error", data: JSON.stringify(error) };
     }
   }
 }
